@@ -7,6 +7,7 @@ import {FiEdit} from 'react-icons/fi';
 import {AiFillDelete} from 'react-icons/ai';
 import ReactPaginate from 'react-paginate';
 import EditCategory from './editCategory';
+import {Link} from 'react-router-dom';
 
 
 const Category = (props) => {
@@ -147,10 +148,10 @@ const Category = (props) => {
                                             content.map((val)=>{
                                                 return (
                                                     <Col lg={2}>
-                                                    <Card className="cardDesign p-2 mb-5" style={{cursor:"pointer"}} onClick={(e)=>{window.location.href="/category/"+val._id}}>
+                                                    <Card className="cardDesign p-2 mb-5">
                                                         
                                                         <Card.Body>
-                                                            <Card.Title className="text-center" style={{fontWeight:"bolder"}}>{val.title}</Card.Title>
+                                                          <p className="text-center"> <Link to={`/category/${val._id}`}  style={{fontWeight:"bolder",cursor:"pointer",color:"black",textDecoration:"none"}}>{val.title}</Link> </p> 
                                                             <div className="text-center">
                                                                     <button className="btn btn-md m-2" type="button" name="edit" style={{backgroundColor:"green",color:'white'}} data-bs-toggle="modal" data-bs-target={`#edit${val._id}`}> <FiEdit/> </button>
                                                                 
@@ -164,6 +165,15 @@ const Category = (props) => {
                                                     
                                                 )
                                             })
+                                        }
+                                        {
+                                            totalPages > currentPage + 1?
+                                            (
+                                                <p> Showing {(currentPage+1) * singlePage} of {categories.length} </p>
+                                            ):
+                                            (
+                                                <p> Showing {categories.length} of {categories.length} </p>
+                                            )
                                         }
                                         <ReactPaginate
                                                 pageCount = {totalPages}

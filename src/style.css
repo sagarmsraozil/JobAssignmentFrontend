@@ -45,7 +45,7 @@ label
     font-weight: bolder;
 }
 
-input:focus, select:focus
+input:focus, select:focus,textarea:focus
 {
     box-shadow: none !important;
     border:1px solid #4b1cac !important;
@@ -55,6 +55,10 @@ input,select
 {
     height: 50px;
     border-radius: 10px !important;
+}
+textarea
+{
+  border-radius: 10px !important;
 }
 .btnDesign{
     background: #4b1cac;
@@ -107,3 +111,27 @@ input,select
     border:1px solid #4b1cac;
   }
   
+  input[type="file"]
+  {
+    border-radius: 0px !important;
+    border:none !important;
+  }
+  
+  input[type="file"]:focus
+  {
+    border:none !important;
+  }
+
+  .imgBlock
+  {
+    width: 100%;
+    height: 200px;
+    padding:0px;
+    overflow: hidden;
+  }
+  .imgBlock img
+  {
+    width: 100%;
+    height: 100%;
+    padding:0px;
+  }
